@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.demo.dao.master.CityDao">
+    <resultMap id="allCity" type="com.example.demo.entity.CityBean">
+        <id column="cityId" property="cityId"></id>
+        <result column="cityName" property="cityName"></result>
+        <result column="cityDescription" property="cityDescription"></result>
+        <association property="provinceBean" javaType="com.example.demo.entity.ProvinceBean">
+            <id column="provinceId" property="provinceId"></id>
+            <result column="provinceName" property="provinceName"></result>
+            <result column="provinceDescription" property="provinceDescription"></result>
+        </association>
+    </resultMap>
+    <select id="getAllCity"  resultMap="allCity">
+        select city.cityId,city.cityName,city.cityDescription,
+        province.provinceId,province.provinceName,province.provinceDescription
+        from city JOIN province ON  city.provinceId = province.provinceId
+    </select>
+</mapper>
