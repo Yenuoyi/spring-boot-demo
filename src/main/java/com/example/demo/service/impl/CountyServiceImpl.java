@@ -15,7 +15,6 @@ public class CountyServiceImpl implements CountyService{
 
     @Override
     public County findByCountyName(String countyName) {
-        System.out.println(countyRepository.findCountyByCityName("梅县区"));
-        return null;
+        return countyRepository.findCountyByCityName("梅县区");
     }
 }

@@ -10,6 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -43,6 +44,12 @@ public class CityController {
     @GetMapping(value = "allCounty")
     public String allCounty(Model model){
         model.addAttribute("allCounty",countyService.findByCountyName("梅县区"));
+        return "index";
+    }
+    @GetMapping(value = "message")
+    public String message(@RequestParam(name="message", required=false, defaultValue="World") String message, Model model){
+        message = countyService.findByCountyName("梅县区").toString();
+        model.addAttribute("message",message);
         return "index";
     }
 }
