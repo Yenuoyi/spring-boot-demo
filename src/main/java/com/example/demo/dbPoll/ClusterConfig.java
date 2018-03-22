@@ -32,10 +32,10 @@ public class ClusterConfig {
         return bean.getObject();
     }
 
-    @Bean(name = "clusterTransactionManager")
-    public DataSourceTransactionManager transactionManager(@Qualifier("clusterDataSource") DataSource dataSource) {
-        return new DataSourceTransactionManager(dataSource);
-    }
+//    @Bean(name = "clusterTransactionManager")
+//    public DataSourceTransactionManager transactionManager(@Qualifier("clusterDataSource") DataSource dataSource) {
+//        return new DataSourceTransactionManager(dataSource);
+//    }
 
     @Bean(name = "clusterSqlSessionTemplate")
     public SqlSessionTemplate sqlSessionTemplate(@Qualifier("clusterSqlSessionFactory") SqlSessionFactory sqlSessionFactory) throws Exception {

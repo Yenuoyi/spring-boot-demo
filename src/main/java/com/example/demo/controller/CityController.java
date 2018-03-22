@@ -1,6 +1,7 @@
 package com.example.demo.controller;
 
 import com.example.demo.service.CityService;
+import com.example.demo.service.CountyService;
 import com.example.demo.service.ProvinceService;
 import com.example.demo.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +21,8 @@ public class CityController {
     private ProvinceService provinceService;
     @Autowired
     private UserService userService;
+    @Autowired
+    private CountyService countyService;
     @RequestMapping(value = "allCity",method = RequestMethod.GET)
     public String allCity(Model model){
         model.addAttribute("allCity",cityService.getAllCity());
@@ -35,6 +38,11 @@ public class CityController {
         request.getSession().setAttribute("yebing","yebing");
         model.addAttribute("allUser",userService.getAllUser());
         System.out.println(request.getSession().getAttribute("yebing"));
+        return "index";
+    }
+    @GetMapping(value = "allCounty")
+    public String allCounty(Model model){
+        model.addAttribute("allCounty",countyService.findByCountyName("梅县区"));
         return "index";
     }
 }

@@ -37,11 +37,11 @@ public class MasterConfig {
         return bean.getObject();
     }
 
-    @Bean(name = "masterTransactionManager")
-    @Primary
-    public DataSourceTransactionManager transactionManager(@Qualifier("masterDataSource") DataSource dataSource) {
-        return new DataSourceTransactionManager(dataSource);
-    }
+//    @Bean(name = "masterTransactionManager")
+//    @Primary
+//    public DataSourceTransactionManager transactionManager(@Qualifier("masterDataSource") DataSource dataSource) {
+//        return new DataSourceTransactionManager(dataSource);
+//    }
 
     @Bean(name = "masterSqlSessionTemplate")
     @Primary
