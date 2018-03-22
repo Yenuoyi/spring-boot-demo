@@ -14,3 +14,7 @@
      dbpool包下为数据源配置
      
      增加了JPA操作，dao.master.countyRepository.java就是JPA操作块，仅供参考。
+     
+     增加thymeleaf操作静态html页面，可进行参数注入，仅限访问
+     http://localhost:8080/message
+     其他地址为jsp地址，如需访问jsp地址，请删除pom.xml文件中thymeleaf包
