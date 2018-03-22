@@ -12,3 +12,5 @@
      运行前请先执行china.sql文件，这是主数据源文件，从数据源请自行根据UserBean.java创建。
      
      dbpool包下为数据源配置
+     
+     增加了JPA操作，dao.master.countyRepository.java就是JPA操作块，仅供参考。
